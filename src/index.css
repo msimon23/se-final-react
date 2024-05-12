@@ -1,49 +1,49 @@
 @font-face {
   font-family: "Roboto Slab";
   font-weight: 700;
-  src: url("./fonts/roboto-slab-700.woff2") format("woff2"),
-    url("./fonts/roboto-700.woff") format("woff");
+  src: url("./vendor/fonts/roboto-slab-700.woff2") format("woff2"),
+    url("./vendor/fonts/roboto-700.woff") format("woff");
 }
 
 @font-face {
   font-family: "Roboto Slab";
   font-weight: 400;
-  src: url("./fonts/roboto-slab-400-regular.woff2") format("woff2"),
-    url("./fonts/roboto-slab-400-regular.woff") format("woff");
+  src: url("./vendor/fonts/roboto-slab-400-regular.woff2") format("woff2"),
+    url("./vendor/fonts/roboto-slab-400-regular.woff") format("woff");
 }
 
 @font-face {
   font-family: Roboto;
   font-weight: 900;
-  src: url("./fonts/roboto-900.woff2") format("woff2"),
-    url("./fonts/roboto-900.woff") format("woff");
+  src: url("./vendor/fonts/roboto-900.woff2") format("woff2"),
+    url("./vendor/fonts/roboto-900.woff") format("woff");
 }
 
 @font-face {
   font-family: Roboto;
   font-weight: 500;
-  src: url("./fonts/roboto-500.woff2") format("woff2"),
-    url("./fonts/roboto-500.woff") format("woff");
+  src: url("./vendor/fonts/roboto-500.woff2") format("woff2"),
+    url("./vendor/fonts/roboto-500.woff") format("woff");
 }
 
 @font-face {
   font-family: Roboto;
   font-weight: 400;
-  src: url("./fonts/roboto-400-regular.woff2") format("woff2"),
-    url("./fonts/roboto-400-regular.woff") format("woff");
+  src: url("./vendor/fonts/roboto-400-regular.woff2") format("woff2"),
+    url("./vendor/fonts/roboto-400-regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "Source Sans Pro";
   font-weight: 400;
-  src: url("./fonts/SourceSans3-Regular.ttf") format("truetype");
+  src: url("./vendor/fonts/SourceSans3-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Inter;
   font-weight: 400;
-  src: url("./fonts/inter-400-regular.woff2") format("woff2"),
-    url("./fonts/inter-400-regular.woff") format("woff");
+  src: url("./vendor/fonts/inter-400-regular.woff2") format("woff2"),
+    url("./vendor/fonts/inter-400-regular.woff") format("woff");
 }
 
 body {
