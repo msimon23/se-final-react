@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  border-bottom: 1px solid #c4c4c4;
+  box-shadow: inset 0 -1px 0px 0px rgba(255, 255, 255, 0.2);
+  height: 80px;
+}
+
+.navbar__sitename {
+  margin-right: auto;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  color: white;
+}
+
+.navbar__right-tabs {
+  display: flex;
+  color: white;
+  gap: 40px;
+}
+
+.navbar__home-tab {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar__home-tab-border-selected {
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background: white;
+  top: 76px;
+}
+
+.navbar__home-tab-border-unselected {
+  display: none;
+}
+
+.navbar__saved-tab {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  background: none;
+  color: #b6bcbf;
+  border: none;
+}
+
+.navbar__signin-button {
+  border: solid white 1px;
+  border-radius: 25px;
+  background: none;
+  color: white;
+  width: 176px;
+  height: 48px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}

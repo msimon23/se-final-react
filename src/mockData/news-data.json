@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "img": "https://images.pexels.com/photos/551628/pexels-photo-551628.jpeg",
+    "date": "April 21, 2024",
+    "title": "This is a super cool title",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Dakota's Brain"
+  },
+  {
+    "id": 1,
+    "img": "https://images.pexels.com/photos/20684681/pexels-photo-20684681/free-photo-of-a-close-up-of-a-flower-on-a-branch.jpeg",
+    "date": "January 7, 2020",
+    "title": "This is the title",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Dakota's Brain"
+  },
+  {
+    "id": 2,
+    "img": "https://www.allrecipes.com/thmb/LBA_1_mNKdb8Wxe_urkeQJcgAWs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8350-chantals-new-york-ddmfs-cheesecake-step1-201-52659eb7e931494b8e8e0a5b1b4c07b7.jpg",
+    "date": "November 22, 1977",
+    "title": "Nature is the title of this article",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Association for Computing Machinery"
+  },
+  {
+    "id": 3,
+    "img": "https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg",
+    "date": "February 11, 2024",
+    "title": "This is a super cool title",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Institute for Electrical and Electronics Engineers"
+  },
+  {
+    "id": 4,
+    "img": "https://images.pexels.com/photos/19036832/pexels-photo-19036832/free-photo-of-mountain-reflection-in-lake.jpeg",
+    "date": "April 21, 2024",
+    "title": "This is a super cool title",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Dakota's Brain"
+  },
+  {
+    "id": 5,
+    "img": "https://www.nawpic.com/media/2020/cute-dog-nawpic-9-e1609617185188.jpg",
+    "date": "April 21, 2024",
+    "title": "This is a super cool title",
+    "text": "This is the description for the article; we're going to make it kind of long so that it fits...",
+    "src": "Dakota's Brain"
+  }
+]

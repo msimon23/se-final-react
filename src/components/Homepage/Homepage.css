@@ -1,0 +1,6 @@
+.background-image {
+  background-image: url("/public/images/home-page-background.svg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}

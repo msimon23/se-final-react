@@ -1,0 +1,14 @@
+.savedlist {
+  background-color: #f5f6f7;
+  position: relative;
+  padding-bottom: 50px;
+  width: 100%;
+  visibility: hidden;
+}
+
+.savedlist__cards-display {
+  display: flex;
+  gap: 15px;
+  white-space: wrap;
+  justify-content: center;
+}
