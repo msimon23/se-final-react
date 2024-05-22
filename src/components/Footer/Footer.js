@@ -1,48 +1,32 @@
 import React from "react";
 import "./Footer.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
-  const navigate = useNavigate();
-
-  function handleHomeClick() {
-    navigate("/");
-  }
-
-  function handleTripletenClick() {
-    navigate("https://tripleten.com/");
-  }
-
-  function handleGithubClick() {
-    navigate("https://github.com/");
-  }
-
-  function handleFacebookClick() {
-    navigate("https://www.facebook.com/tripleten.tech/");
-  }
-
   return (
     <footer className="footer">
       <p className="footer__text">© 2024 Supersite, Powered by News API</p>
       <nav className="footer__nav">
-        <button className="footer__button" onClick={handleHomeClick}>
+        <Link to={"/"} className="footer__button">
           Home
-        </button>
-        <button className="footer__button" onClick={handleTripletenClick}>
+        </Link>
+        <a href="https://tripleten.com/" className="footer__button">
           Tripleten
-        </button>
-        <img
-          className="footer__social"
-          src="../../../images/github.svg"
-          alt="Github logo"
-          onClick={handleGithubClick}
-        />
-        <img
-          className="footer__social"
-          src="../../../images/fb.svg"
-          alt="Facebook logo"
-          onClick={handleFacebookClick}
-        />
+        </a>
+        <a href="https://github.com/">
+          <img
+            className="footer__social"
+            src="../../../images/github.svg"
+            alt="Github logo"
+          />
+        </a>
+        <a href="https://www.facebook.com/tripleten.tech/">
+          <img
+            className="footer__social"
+            src="../../../images/fb.svg"
+            alt="Facebook logo"
+          />
+        </a>
       </nav>
     </footer>
   );

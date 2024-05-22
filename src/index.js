@@ -5,6 +5,7 @@ import "./index.css";
 import Homepage from "./components/Homepage/Homepage";
 import reportWebVitals from "./reportWebVitals";
 import SavedArticles from "./components/SavedArticles/SavedArticles";
+import TestData from "./components/TestApi/TestData";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route element={<Homepage />} path="/" />
         <Route element={<SavedArticles />} path="/saved-articles" />
+        <Route element={<TestData />} path="/test" /> {/* remove me later */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

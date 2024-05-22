@@ -3,7 +3,8 @@
   position: relative;
   padding-bottom: 50px;
   width: 100%;
-  visibility: hidden;
+  height: calc(100vh - 460px);
+  /* visibility: hidden; */
 }
 
 .savedlist__cards-display {

@@ -12,20 +12,22 @@ export default function NewsCardList() {
 
   return (
     <div className="results">
-      <h4 className="results__title">Search Results</h4>
       <div className="results__cards-display">
-        {data.slice(0, cardsToShow).map((datum) => {
-          return (
-            <NewsCard
-              img={datum.img}
-              key={`card-${datum.id}`}
-              date={datum.date}
-              title={datum.title}
-              text={datum.text}
-              src={datum.src}
-            />
-          );
-        })}
+        <h4 className="results__title">Search Results</h4>
+        <div className="results__cards-inner">
+          {data.slice(0, cardsToShow).map((datum) => {
+            return (
+              <NewsCard
+                img={datum.img}
+                key={`card-${datum.id}`}
+                date={datum.date}
+                title={datum.title}
+                text={datum.text}
+                src={datum.src}
+              />
+            );
+          })}
+        </div>
       </div>
       <button className="results__more-button" onClick={handleShowMoreCards}>
         Show more
