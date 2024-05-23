@@ -1,12 +1,12 @@
 import { baseUrl, processResponseServer } from "./constants";
 
 async function getCards({ q, apiKey, from, to, pageSize }) {
-  return fetch(
+  return await fetch(
     `${baseUrl}/everything?q=${q}&apiKey=${apiKey}&from=${from}&to=${to}&pageSize=${pageSize}`,
     {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         authorization: apiKey,
       },
     }

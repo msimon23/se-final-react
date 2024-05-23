@@ -1,5 +1,5 @@
 import "./Homepage.css";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Navigation/Navbar";
 import Header from "../Header/Header";
 import About from "../About/About";
@@ -12,8 +12,17 @@ import { getCards } from "../../utils/Api";
 // import ModalWithJustText from "../ModalWithJustText/ModalWithJustText";
 
 export default function Homepage() {
+  const [cards, setCards] = useState([]);
+
   const handleSearchResponse = ({ q, apiKey, from, to, pageSize }) => {
-    getCards({ q, apiKey, from, to, pageSize });
+    getCards({ q, apiKey, from, to, pageSize })
+      .then((res) => {
+        console.log(res);
+        setCards(res.articles);
+      })
+      .catch((err) => {
+        console.error(err.message, "api not working");
+      });
   };
 
   return (
@@ -23,7 +32,7 @@ export default function Homepage() {
         <Header />
         <SearchForm onSearch={handleSearchResponse} />
       </div>
-      <NewsCardList />
+      <NewsCardList cards={cards} />
       <About />
       <Footer />
       {/* <LoginModal /> */}
