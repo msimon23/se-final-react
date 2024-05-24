@@ -39,7 +39,7 @@ export default function NewsCard({ img, date, title, text, src }) {
         onClick={toggleBookmark}
       />
       <div className="newscard__text">
-        <p className="newscard__date">{date}</p>
+        <p className="newscard__date">{new Date(date).toLocaleString()}</p>
         <h3 className="newscard__title">{title}</h3>
         <p className="newscard__paragraph">{text}</p>
         <p className="newscard__src">{src}</p>

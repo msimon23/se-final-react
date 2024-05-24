@@ -8,11 +8,20 @@ export default function ModalWithForm({
   buttonText,
   secondaryButtonText1,
   secondaryButtonText2,
+  isOpen,
+  onClose,
+  secondaryButtonAction,
 }) {
+  if (!isOpen) return null;
+
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal_content">
-        <button className="modal__close-button" type="button" />
+        <button
+          className="modal__close-button"
+          type="button"
+          onClick={onClose}
+        />
         <h3 className="modal__title">{title}</h3>
         <form className="modal__form">
           {children}
@@ -24,7 +33,9 @@ export default function ModalWithForm({
             type="button"
           >
             {secondaryButtonText1}
-            <span className="button__text-blue">{secondaryButtonText2}</span>
+            <span className="button__text-blue" onClick={secondaryButtonAction}>
+              {secondaryButtonText2}
+            </span>
           </button>
         </form>
       </div>

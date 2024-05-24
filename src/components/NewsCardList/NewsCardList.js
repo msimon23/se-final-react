@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
-import data from "../../mockData/news-data.json";
+import { getCards } from "../../utils/Api";
+import { apiKey } from "../../utils/constants";
 
 export default function NewsCardList() {
   const [cardsToShow, setCardsToShow] = useState(3);
+  const [data, setData] = useState([]);
+
+  /* Run an action when the component mounts */
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const cards = await getCards({
+          q: "dogs",
+          apiKey,
+          from: new Date("05/16/2024"),
+          to: new Date(),
+          pageSize: 100,
+        });
+        console.log(cards);
+        setData(cards.articles);
+      } catch (error) {
+        // deal with the error
+        alert(error.message);
+      }
+    }
+    fetchData();
+  }, []);
 
   function handleShowMoreCards() {
     setCardsToShow(cardsToShow + 3);
@@ -18,12 +41,12 @@ export default function NewsCardList() {
           {data.slice(0, cardsToShow).map((datum) => {
             return (
               <NewsCard
-                img={datum.img}
-                key={`card-${datum.id}`}
-                date={datum.date}
+                img={datum.urlToImage}
+                key={`card-${datum.url}`}
+                date={datum.publishedAt}
                 title={datum.title}
-                text={datum.text}
-                src={datum.src}
+                text={datum.description}
+                src={datum.source.name}
               />
             );
           })}

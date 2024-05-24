@@ -3,10 +3,6 @@ import "./SearchForm.css";
 import { apiKey } from "../../utils/constants";
 
 export default function SearchForm({ onSearch }) {
-  // constant for search value using useState (searchValue, setsearchValue)
-  // create arrow function for when user searches for news and changes
-  // user types in search box "space"
-  //s sp spa spac space
   const [keyword, setKeyword] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -28,7 +24,6 @@ export default function SearchForm({ onSearch }) {
 
   const handleSearchButtonClick = (e) => {
     e.preventDefault();
-    // q = user input ; apiKey = apiKey ; from and to are going to need another function determining the date ; pageSize = 100
     onSearch({
       q: keyword,
       apiKey: apiKey,

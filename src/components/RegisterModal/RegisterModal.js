@@ -1,13 +1,19 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-export default function RegisterModal() {
+export default function RegisterModal({ isOpen, onClose, onSignInClick }) {
   return (
     <ModalWithForm
       title="Register"
       buttonText={"Sign up"}
       secondaryButtonText1={"or"}
       secondaryButtonText2={"Sign in"}
+      isOpen={isOpen}
+      onClose={onClose}
+      secondaryButtonAction={() => {
+        onClose();
+        onSignInClick();
+      }}
     >
       <label className="modal__label">
         <span>Email</span>
