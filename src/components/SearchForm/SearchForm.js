@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./SearchForm.css";
 import { apiKey } from "../../utils/constants";
 
-export default function SearchForm({ onSearch }) {
+export default function SearchForm({ onSearch, onChange }) {
   const [keyword, setKeyword] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleChange = (e) => {
+  const handleKeywordChange = (e) => {
     setKeyword(e.target.value);
+    // onChange(e.target.value);
   };
 
   useEffect(() => {
@@ -26,10 +27,10 @@ export default function SearchForm({ onSearch }) {
     e.preventDefault();
     onSearch({
       q: keyword,
-      apiKey: apiKey,
-      pageSize: 100,
+      apiKey,
       from: startDate,
       to: endDate,
+      pageSize: 100,
     });
   };
 
@@ -39,7 +40,8 @@ export default function SearchForm({ onSearch }) {
         className="search-form__input"
         type="text"
         placeholder="Enter topic"
-        onChange={handleChange}
+        onChange={handleKeywordChange}
+        value={keyword}
       />
       <button className="search-form__button" onClick={handleSearchButtonClick}>
         Search

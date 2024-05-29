@@ -6,6 +6,7 @@ export default function SavedNewsCard({
   img,
   keyword,
   date,
+  key,
   title,
   text,
   src,

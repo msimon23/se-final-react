@@ -9,12 +9,16 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import { getCards } from "../../utils/Api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
-// import ModalWithJustText from "../ModalWithJustText/ModalWithJustText";
+import Preloader from "../Preloader/Preloader";
+// import ModalWithJustText from "../ModalWithJustText/ModalWithJustText"; I think this may get rendered in the login modal
 
 export default function Homepage() {
   const [cards, setCards] = useState([]);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   const handleOpenLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -32,15 +36,17 @@ export default function Homepage() {
     setIsRegisterModalOpen(false);
   };
 
-  const handleSearchResponse = ({ q, apiKey, from, to, pageSize }) => {
-    getCards({ q, apiKey, from, to, pageSize })
-      .then((res) => {
-        console.log(res);
-        setCards(res.articles);
-      })
-      .catch((err) => {
-        console.error(err.message, "api not working");
-      });
+  const handleSearchResponse = async ({ q, apiKey, from, to, pageSize }) => {
+    setIsLoading(true);
+    try {
+      const cards = await getCards({ q, apiKey, from, to, pageSize });
+      setKeyword(q);
+      setCards(cards.articles);
+      setHasSearched(true);
+    } catch (err) {
+      console.error(err.message, "api not working");
+    }
+    setIsLoading(false);
   };
 
   return (
@@ -50,7 +56,10 @@ export default function Homepage() {
         <Header />
         <SearchForm onSearch={handleSearchResponse} />
       </div>
-      <NewsCardList cards={cards} />
+      {hasSearched && !isLoading && (
+        <NewsCardList cards={cards} keyword={keyword} />
+      )}
+      {isLoading && <Preloader />}
       <About />
       <Footer />
       <LoginModal
@@ -63,7 +72,6 @@ export default function Homepage() {
         onClose={handleCloseRegisterModal}
         onSignInClick={handleOpenLoginModal}
       />
-      {/* <ModalWithJustText /> */}
     </div>
   );
 }

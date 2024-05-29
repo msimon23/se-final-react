@@ -1,33 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
-import { getCards } from "../../utils/Api";
-import { apiKey } from "../../utils/constants";
 
-export default function NewsCardList() {
+export default function NewsCardList({ cards, keyword }) {
   const [cardsToShow, setCardsToShow] = useState(3);
-  const [data, setData] = useState([]);
 
-  /* Run an action when the component mounts */
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const cards = await getCards({
-          q: "dogs",
-          apiKey,
-          from: new Date("05/16/2024"),
-          to: new Date(),
-          pageSize: 100,
-        });
-        console.log(cards);
-        setData(cards.articles);
-      } catch (error) {
-        // deal with the error
-        alert(error.message);
-      }
-    }
-    fetchData();
-  }, []);
+    setCardsToShow(3);
+  }, [cards]);
 
   function handleShowMoreCards() {
     setCardsToShow(cardsToShow + 3);
@@ -38,7 +18,7 @@ export default function NewsCardList() {
       <div className="results__cards-display">
         <h4 className="results__title">Search Results</h4>
         <div className="results__cards-inner">
-          {data.slice(0, cardsToShow).map((datum) => {
+          {cards.slice(0, cardsToShow).map((datum) => {
             return (
               <NewsCard
                 img={datum.urlToImage}
@@ -47,14 +27,18 @@ export default function NewsCardList() {
                 title={datum.title}
                 text={datum.description}
                 src={datum.source.name}
+                url={datum.url}
+                keyword={keyword}
               />
             );
           })}
         </div>
       </div>
-      <button className="results__more-button" onClick={handleShowMoreCards}>
-        Show more
-      </button>
+      {cards.length > cardsToShow && (
+        <button className="results__more-button" onClick={handleShowMoreCards}>
+          Show more
+        </button>
+      )}
     </div>
   );
 }

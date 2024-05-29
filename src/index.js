@@ -5,18 +5,19 @@ import "./index.css";
 import Homepage from "./components/Homepage/Homepage";
 import reportWebVitals from "./reportWebVitals";
 import SavedArticles from "./components/SavedArticles/SavedArticles";
-import TestData from "./components/TestApi/TestData";
+import { ArticleProvider } from "./contexts/ArticleProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Homepage />} path="/" />
-        <Route element={<SavedArticles />} path="/saved-articles" />
-        <Route element={<TestData />} path="/test" /> {/* remove me later */}
-      </Routes>
-    </BrowserRouter>
+    <ArticleProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Homepage />} path="/" />
+          <Route element={<SavedArticles />} path="/saved-articles" />
+        </Routes>
+      </BrowserRouter>
+    </ArticleProvider>
   </React.StrictMode>
 );
 

@@ -13,7 +13,6 @@
 .newscard__image {
   width: 100%;
   height: 272px;
-  /* background: url("/public/images/cardtest.svg"); */
   border-radius: 8px 8px 0 0;
 }
 
@@ -68,7 +67,9 @@
   margin: 0;
   padding-left: 20px;
   padding-bottom: 15px;
-  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
 }
 
 .newscard__paragraph {
