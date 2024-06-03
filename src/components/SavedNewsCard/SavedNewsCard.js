@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import "./SavedNewsCard.css";
-import "../NewsCard/NewsCard";
 
 export default function SavedNewsCard({
   img,
   keyword,
   date,
-  key,
   title,
   text,
   src,
+  url,
+  onDelete,
 }) {
   const [isHovering, setIsHovering] = useState(false);
-
-  // const handleDeleteCard() {}
 
   return (
     <div className="newscard">
@@ -33,10 +31,16 @@ export default function SavedNewsCard({
         onMouseOut={() => setIsHovering(false)}
         src="../../../images/delete-icon.svg"
         alt="delete"
-        // onClick={handleDeleteCard}
+        onClick={() => onDelete(url)}
       />
       <div className="newscard__text">
-        <p className="newscard__date">{date}</p>
+        <p className="newscard__date">
+          {new Date(date).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </p>
         <h3 className="newscard__title">{title}</h3>
         <p className="newscard__paragraph">{text}</p>
         <p className="newscard__src">{src}</p>

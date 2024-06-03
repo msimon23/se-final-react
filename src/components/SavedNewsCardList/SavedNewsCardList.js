@@ -1,28 +1,46 @@
-import React from "react";
-// import { useState } from "react";
-// import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
+import React, { useContext } from "react";
+import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import "./SavedNewsCardList.css";
+import { articleContext } from "../../contexts/ArticleProvider";
 
-export default function SavedNewsCardList() {
-  // const savedCards = [isBookmarked, setIsBookmarked] = useState(true)    ???
+export default function SavedNewsCardList({ cards, keyword }) {
+  const { savedArticles, setSavedArticles } = useContext(articleContext);
+
+  const handleDeleteCard = (url) => {
+    setSavedArticles((prevSavedArticles) => {
+      return prevSavedArticles.filter((articleGroup) => {
+        articleGroup.articles = articleGroup.articles.filter(
+          (article) => article.url !== url
+        );
+        if (articleGroup.articles.length === 0) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    });
+  };
 
   return (
     <div className="savedlist">
       <div className="savedlist__cards-display">
-        {/* {isBookmarked &&
-          data.map((datum) => {
+        {savedArticles.map((articleGroup) =>
+          articleGroup.articles.map((article) => {
             return (
               <SavedNewsCard
-                img={datum.img}
-                key={`card-${datum.id}`}
-                keyword={datum.keyword}
-                date={datum.date}
-                title={datum.title}
-                text={datum.text}
-                src={datum.src}
+                img={article.img}
+                key={`card-${article.url}`}
+                keyword={articleGroup.keyword}
+                date={article.date}
+                title={article.title}
+                text={article.text}
+                src={article.src}
+                url={article.url}
+                onDelete={handleDeleteCard}
               />
             );
-          })} */}
+          })
+        )}
       </div>
     </div>
   );

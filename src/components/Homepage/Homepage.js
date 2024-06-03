@@ -1,5 +1,5 @@
 import "./Homepage.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navigation/Navbar";
 import Header from "../Header/Header";
 import About from "../About/About";
@@ -48,6 +48,20 @@ export default function Homepage() {
     }
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseLoginModal();
+        handleCloseRegisterModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, []);
 
   return (
     <div className="Homepage">

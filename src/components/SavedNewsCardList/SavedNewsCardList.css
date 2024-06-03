@@ -1,15 +1,20 @@
+.savedlist__empty {
+  height: calc(100vh - 412px);
+}
+
 .savedlist {
   background-color: #f5f6f7;
-  position: relative;
+  padding-top: 0;
   padding-bottom: 50px;
   width: 100%;
-  height: calc(100vh - 460px);
-  /* visibility: hidden; */
 }
 
 .savedlist__cards-display {
   display: flex;
+  max-width: 1250px;
+  margin: 0 auto;
   gap: 15px;
+  flex-wrap: wrap;
   white-space: wrap;
-  justify-content: center;
+  justify-items: space-between;
 }

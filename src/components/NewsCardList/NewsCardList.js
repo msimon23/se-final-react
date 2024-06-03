@@ -17,22 +17,26 @@ export default function NewsCardList({ cards, keyword }) {
     <div className="results">
       <div className="results__cards-display">
         <h4 className="results__title">Search Results</h4>
-        <div className="results__cards-inner">
-          {cards.slice(0, cardsToShow).map((datum) => {
-            return (
-              <NewsCard
-                img={datum.urlToImage}
-                key={`card-${datum.url}`}
-                date={datum.publishedAt}
-                title={datum.title}
-                text={datum.description}
-                src={datum.source.name}
-                url={datum.url}
-                keyword={keyword}
-              />
-            );
-          })}
-        </div>
+        {cards.length === 0 ? (
+          <p>Nothing found for "{keyword}"</p>
+        ) : (
+          <div className="results__cards-inner">
+            {cards.slice(0, cardsToShow).map((datum) => {
+              return (
+                <NewsCard
+                  img={datum.urlToImage}
+                  key={`card-${datum.url}`}
+                  date={datum.publishedAt}
+                  title={datum.title}
+                  text={datum.description}
+                  src={datum.source.name}
+                  url={datum.url}
+                  keyword={keyword}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
       {cards.length > cardsToShow && (
         <button className="results__more-button" onClick={handleShowMoreCards}>

@@ -14,19 +14,35 @@ export default function NewsCard({
   const [isHovering, setIsHovering] = useState(false);
   const { savedArticles, setSavedArticles } = useContext(articleContext);
   const isBookmarked = savedArticles.some((articleGroup) =>
-    articleGroup.articles.some((article) => article === url)
+    articleGroup.articles.some((article) => article.url === url)
   );
+
+  /*  
+  [
+      {
+        keyword: string, 
+        articles: string[]
+      },
+      {
+        keyword: string, 
+        articles: string[]
+      }
+  ]
+  */
+  console.log(savedArticles);
 
   const toggleBookmark = () => {
     if (isBookmarked) {
       setSavedArticles((prevSavedArticles) => {
-        return prevSavedArticles.map((articleGroup) => {
-          return {
-            ...articleGroup,
-            articles: articleGroup.articles.filter(
-              (article) => article !== url
-            ),
-          };
+        return prevSavedArticles.filter((articleGroup) => {
+          articleGroup.articles = articleGroup.articles.filter(
+            (article) => article.url !== url
+          );
+          if (articleGroup.articles.length === 0) {
+            return false;
+          } else {
+            return true;
+          }
         });
       });
     } else {
@@ -34,9 +50,28 @@ export default function NewsCard({
         const articleCopy = [...prevSavedArticles];
         const articleGroup = articleCopy.find((ag) => ag.keyword === keyword);
         if (articleGroup) {
-          articleGroup.articles.push(url);
+          articleGroup.articles.push({
+            img,
+            date,
+            title,
+            text,
+            src,
+            url,
+          });
         } else {
-          articleCopy.push({ keyword, articles: [url] });
+          articleCopy.push({
+            keyword,
+            articles: [
+              {
+                img,
+                date,
+                title,
+                text,
+                src,
+                url,
+              },
+            ],
+          });
         }
         return articleCopy;
       });
@@ -79,7 +114,7 @@ export default function NewsCard({
       />
       <div className="newscard__text">
         <p className="newscard__date">
-          {new Date().toLocaleDateString("en-US", {
+          {new Date(date).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric",

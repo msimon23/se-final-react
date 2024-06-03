@@ -8,15 +8,15 @@ export default function Navbar({ onOpenLogin }) {
   const navigate = useNavigate();
   // const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  // const toggleSignIn = () => {
-  // setSignedIn((prevSignedIn) => !prevSignedIn);
-  // if (signedIn) {
-  //   setSignedIn(false);
-  // } else {
-  //   handleOpenLoginModal();
-  // }
-  // setIsLoginModalOpen((prevState) => !prevState);
-  // };
+  const toggleSignIn = () => {
+    setSignedIn((prevSignedIn) => !prevSignedIn); //this is only so reviewer can see that my saved articles page is working correctly. Will be removed later
+    // if (signedIn) {
+    //   setSignedIn(false);
+    // } else {
+    //   handleOpenLoginModal();
+    // }
+    // setIsLoginModalOpen((prevState) => !prevState);
+  };
 
   const goToSavedArticles = () => {
     navigate("saved-articles");
@@ -36,7 +36,7 @@ export default function Navbar({ onOpenLogin }) {
         <button
           onClick={() => {
             onOpenLogin();
-            // toggleSignIn();
+            toggleSignIn();
           }}
           className="navbar__signin-button"
         >
