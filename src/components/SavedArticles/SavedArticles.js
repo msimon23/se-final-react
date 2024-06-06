@@ -25,4 +25,4 @@ export default function SavedArticles() {
   );
 }
 
-// need a <ProtectedRoute path="/profile" loggedIn={loggedIn}></ProtectedRoute> around this component?
+// need a <ProtectedRoute path="/profile" loggedIn={loggedIn}></ProtectedRoute> around this component??
